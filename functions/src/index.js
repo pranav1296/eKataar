@@ -22,6 +22,52 @@ exports.generateToken = functions.https.onRequest((req, res) => {
 
 function addAvailability(){}
 
+exports.validateEToken = functions.https.onRequest((req, res) => {
+  const body = req.body;
+  if (req.method === 'OPTIONS') {
+    res.set('Access-Control-Allow-Methods', 'POST');
+      res.set('Access-Control-Allow-Headers', 'Authorization');
+      res.set('Access-Control-Max-Age', '3600');
+      res.status(204).send('');
+  } else {
+    admin.database().ref('etokens/').once('value', (etokensArray) => {
+      for (const etoken of etokensArray) {
+        if (etoken.tokenNumber === body.etoken && etoken.vendor === body.vendor) {
+          const date = createDate();
+          if (date === etoken.date && checkTimeSlot(date, etoken.time, etoken.duration)) {
+            res.send({
+              'status': 'success',
+              'error': 'Valid Token'
+            })
+          } else {
+            res.send({
+              'status': 'error',
+              'error': 'Invalid Token'
+            })
+          }
+        } else {
+          res.send({
+            'status': 'error',
+            'error': 'Invalid Token'
+          })
+        }
+      }
+    });
+  }
+});
+function checkTimeSlot(date, etokenDate, etokenDuration) {
+  var correctTimeSlot = false;
+  const totalMin = date.getHours() * 60 + date.getMinutes();
+  const tokenMin = etokenDate.substr(0, 2) * 60 + etokenDate.substr(2, 4);
+  if ((tokenMin + etokenDuration < totalMin && totalMin >= tokenMin)) {
+    correctTimeSlot = true;
+  }
+  correctTimeSlot;
+}
+function createDate() {
+  const date = new Date();
+  return date.getUTCFullYear + (date.getUTCMonth + 1) + date.getUTCDate;
+}
 exports.createConsumer = functions.https.onRequest((req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
     res.set('Access-Control-Allow-Methods', 'GET, POST');
