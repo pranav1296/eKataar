@@ -74,7 +74,36 @@ exports.createConsumer = functions.https.onRequest((req, res) => {
       
     }
 });
-
+exports.isReturningUser = functions.https.onRequest((req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'GET, POST');
+    console.log("received", req.body.toString());
+    if (req.method === 'OPTIONS') {
+      // Send response to OPTIONS requests
+      res.set('Access-Control-Allow-Methods', 'GET, POST');
+      res.set('Access-Control-Allow-Headers', '*');
+      res.set('Access-Control-Max-Age', '3600');
+      res.status(204).send('');
+    } else {
+      admin.database().ref('userMapping/').once('value', (snapshot) => {
+        let userName = email.split('@')[0];
+        if(snapshot.hasChild(userName)){
+          res.status(200).send({
+            "status": "success",
+            "returningUser": "true",
+            "message" : snapshot.child(userName)
+          });
+        }else {
+          res.status(200).send({
+            "status": "success",
+            "returningUser": "false",
+            "message" : "first time login"
+          });
+        }          
+      });
+      
+    }
+});
 function addUserMapping (email, mobile){
   let userName = email.split('@')[0];
   admin.database().ref('userMapping/').once('value', (userMapping) => {
@@ -91,5 +120,4 @@ function addConsumer(consumersArray, data){
       "lname" : data.lname,
       "pincode" : data.pincode
   });
-
 }
