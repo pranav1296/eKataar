@@ -19,21 +19,6 @@ exports.generateToken = functions.https.onRequest((req, res) => {
     }
 });
 
-exports.createVendor = functions.https.onRequest((req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
-    res.set('Access-Control-Allow-Methods', 'GET, POST');
-
-  
-    if (req.method === 'OPTIONS') {
-      // Send response to OPTIONS requests
-      res.set('Access-Control-Allow-Methods', 'GET');
-      res.set('Access-Control-Allow-Headers', 'Authorization');
-      res.set('Access-Control-Max-Age', '3600');
-      res.status(204).send('');
-    } else {
-      res.send('Hello World!');
-    }
-});
 
 function addAvailability(){}
 
@@ -86,7 +71,9 @@ exports.isReturningConsumer = functions.https.onRequest((req, res) => {
       res.status(204).send('');
     } else {
       admin.database().ref('userMapping/').once('value', (snapshot) => {
-        let userName = email.split('@')[0];
+        console.log("u???", req.body);
+        const data =  req.body;
+        let userName =data.email.split('@')[0];
         if(snapshot.hasChild(userName)){
           res.status(200).send({
             "status": "success",
@@ -116,7 +103,7 @@ exports.isReturningVendor = functions.https.onRequest((req, res) => {
     res.status(204).send('');
   } else {
     admin.database().ref('vendorMapping/').once('value', (snapshot) => {
-      let userName = email.split('@')[0];
+      let userName = req.body["email"].split('@')[0];
       if(snapshot.hasChild(userName)){
         res.status(200).send({
           "status": "success",
@@ -156,6 +143,7 @@ exports.createVendor = functions.https.onRequest((req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
   res.set('Access-Control-Allow-Methods', 'GET, POST');
   console.log("received", req.body.toString());
+  const data = req.body;
   if (req.method === 'OPTIONS') {
     // Send response to OPTIONS requests
     res.set('Access-Control-Allow-Methods', 'GET, POST');
