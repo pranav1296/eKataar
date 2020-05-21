@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
     <div class="container">
-      <form name="consumerProfileForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="consumerProfileForm"  (ngSubmit)="onSubmit()">
         <div class="form-container">
           <div class="labels-container">
             <div>
@@ -34,29 +34,29 @@
           </div>
           <div class="fields-container">
             <div>
-              <input type="text" id="fName" name="Acode" [(ngModel)]="fName" required>
+              <input type="text" id="fName" name="Acode" formControlName="fName" required>
             </div>
             <div>
-                <input type="text" id="lName" name="Acode" [(ngModel)]="lName" required>
+                <input type="text" id="lName" name="Acode" formControlName="lName" required>
               </div>
             <div>
-              <select id="VFT" name="idType" [(ngModel)]="idType">
+              <select id="VFT" name="idType" formControlName="idType">
                 <option value="Passport">Adhar Card</option>
                 <option value="Ration card">Driving License</option>
                 <option value="Ration card">Ration Card</option>
               </select>
             </div>
             <div>
-                <input type="text" id="idNumber" name="idNumber" [(ngModel)]="idNumber" required>
+                <input type="text" id="idNumber" name="idNumber" formControlName="idNumber" required>
             </div>
             <div>
-              <textarea id="currentAddress" [(ngModel)]="currentAddress"> </textarea>
+              <textarea id="currentAddress" formControlName="currentAddress"> </textarea>
             </div>
             <div>
-                <textarea id="permanentAddress" [(ngModel)]="permanentAddress"> </textarea>
+                <textarea id="permanentAddress" formControlName="permanentAddress"> </textarea>
             </div>
             <div>
-                <input type="number" id="mobileNumber" [(ngModel)]="mobileNumber">
+                <input type="number" id="mobileNumber" formControlName="mobileNumber">
             </div>
           </div>
   

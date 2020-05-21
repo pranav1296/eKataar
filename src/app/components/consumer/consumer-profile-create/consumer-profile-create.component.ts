@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
   selector: 'app-consumer-profile-create',
@@ -6,13 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./consumer-profile-create.component.css']
 })
 export class ConsumerProfileCreateComponent implements OnInit {
-  fName:string;
-  lName:string;
-  idType:string;
-  idNumber:string;
-  currentAddress:string;
-  permanentAddress:string;
-  mobileNumber:number;
+
+  profileForm = new FormGroup({ 
+    fName:new FormControl(''),
+    lName:new FormControl(''),
+    idType:new FormControl(''),
+    idNumber:new FormControl(''),
+    currentAddress:new FormControl(''),
+    permanentAddress:new FormControl(''),
+    mobileNumber:new FormControl('')
+  })
+
+  
+  
   consumerProfileForm:{};
   constructor() { }
   onSubmit() {
