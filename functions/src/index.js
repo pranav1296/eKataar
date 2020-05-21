@@ -43,7 +43,7 @@ exports.createConsumer = functions.https.onRequest((req, res) => {
 
     console.log("received", req);
     const data = req.body;
-  
+    console.log("received", req.body.toString());
     if (req.method === 'OPTIONS') {
       // Send response to OPTIONS requests
       res.set('Access-Control-Allow-Methods', 'GET, POST');
@@ -53,19 +53,20 @@ exports.createConsumer = functions.https.onRequest((req, res) => {
     } else {
       admin.database().ref('consumers/').once('value', (consumersArray) => {
         console.log("snapshot for consumers");
-        console.log(snapshot);
+        console.log(data.mobile);
 
-        if(consumersArray.hasOwnProperty(data.phone)){
+        if(consumersArray.hasChild(data.mobile)){
           const error = {
             "status": "error",
             "error" : "User Already exists"
           }
-          res.send(error);
+          res.status(200).send(error);
         }else {
           addConsumer(consumersArray, data);
-          res.send({
+          addUserMapping(data.email, data.mobile);
+          res.status(200).send({
             "status": "success",
-            "error" : "User added successfully."
+            "message" : "User added successfully."
           });
         }
           
@@ -74,15 +75,21 @@ exports.createConsumer = functions.https.onRequest((req, res) => {
     }
 });
 
+function addUserMapping (email, mobile){
+  let userName = email.split('@')[0];
+  admin.database().ref('userMapping/').once('value', (userMapping) => {
+    userMapping.ref.child(`${userName}/`).set(mobile);
+  });
+}
 function addConsumer(consumersArray, data){
-  consumersArray.child(data.mobile).set({
-      "address" : "1st Main, Bengaluru",
-      "email" : "gmaahi68@gmail.com",
-      "fname" : "Mansi",
-      "idNumber" : "78456454",
-      "idType" : "adhaar",
-      "lname" : "Gupta",
-      "pincode" : "244901"
+  consumersArray.child(`${data.mobile}/`).ref.set({
+      "address" : data.address,
+      "email" : data.email,
+      "fname" : data.fname,
+      "idNumber" :data.idNumber,
+      "idType" : data.idType,
+      "lname" : data.lname,
+      "pincode" : data.pincode
   });
 
 }
