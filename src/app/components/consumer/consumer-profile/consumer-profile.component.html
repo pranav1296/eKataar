@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
     <div class="container">
-      <form>
+      <form [formGroup]="consumerProfileForm" (ngSubmit)="submitForm()">
         <div class="form-container">
           <div class="labels-container">
             <div>
@@ -26,10 +26,10 @@
           </div>
           <div class="fields-container">
             <div>
-              <input type="text" id="Acode" name="Acode" [(ngModel)]="areaCode" required>
+              <input type="text" id="Acode" name="Acode" formControlName="areaCode" required>
             </div>
             <div>
-              <select id="VFT" name="Visiting facility Type:"  [(ngModel)]="facilityType" >
+              <select id="VFT" name="Visiting facility Type:"  formControlName="facilityType" >
                 <option value="Passport">Super-markets</option>
                 <option value="Ration card">small Kirana stores</option>
                 <option value="Aadhar card">Pharmacy</option>
@@ -42,7 +42,7 @@
               </select>
             </div>
             <div>
-              <select id="VFTN" name="Select visiting facility:"   [(ngModel)]="storeName" required>
+              <select id="VFTN" name="Select visiting facility:"  formControlName="storeName" required>
                 <option value="Passport">Green land</option>
                 <option value="Ration card">happy land </option>
                 <option value="Aadhar card">M K Ahmed</option>
@@ -50,10 +50,10 @@
               </select>
             </div>
             <div>
-              <input type="date" id="Vdate" name="Vdate" min="2020-05-14"   [(ngModel)]="slotDate"  required>
+              <input type="date" id="Vdate" name="Vdate" min="2020-05-14"   formControlName="slotDate"  required>
             </div>
             <div>
-              <select id="Tslot" name="Select Time Slot:" [(ngModel)]="slotTime" >
+              <select id="Tslot" name="Select Time Slot:" formControlName="slotTime" >
                 <option value="">10-10.30</option>
                 <option value="10.30-11:00">10.30-11:00</option>
                 <option value="Aadhar card">11.00-11:30</option>

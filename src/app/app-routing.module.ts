@@ -5,6 +5,7 @@ import {ConsumerProfileCreateComponent} from "../app/components/consumer/consume
 import { SignUpComponent } from "../app/components/sign-up/sign-up.component";
 import { ConsumerProfileComponent } from "../app/components/consumer/consumer-profile/consumer-profile.component";
 import { VendoreProfileComponent } from "../app/components/vendor/vendore-profile/vendore-profile.component";
+import { VerifierComponent } from "../app/components/verifier/verifier.component";
 
 const routes: Routes = [
   { path: "", component: SignUpComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: "createconsumer", component: ConsumerProfileCreateComponent },
   { path: "vendor", component: VendoreProfileComponent },
   { path: "consumer", component: ConsumerProfileComponent },
+  { path: "alotted", component: VerifierComponent }
 ];
 
 @NgModule({
