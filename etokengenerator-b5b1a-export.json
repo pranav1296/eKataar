@@ -1,0 +1,42 @@
+{
+  "availability" : [ {
+    "test" : "test"
+  } ],
+  "categories" : [ "food", "groceries", "supermarkets", "pharmacy" ],
+  "consumers" : {
+    "7895763467": {
+    "address" : "1st Main, Bengaluru",
+    "email" : "gmaahi68@gmail.com",
+    "fname" : "Mansi",
+    "idNumber" : "78456454",
+    "idType" : "adhaar",
+    "lname" : "Gupta",
+    "pincode" : "244901"
+  }
+ },
+  "etokens" : [ {
+    "consumer" : "789456123",
+    "date" : "20200520",
+    "slotDuration" : 15,
+    "status" : "UP",
+    "time" : "2300",
+    "tokenNumber" : 123456,
+    "vendor" : "789456123"
+  } ],
+  "status" : [ "UP", "EXP", "RED" ],
+  "vendors" : [ {
+    "address" : "1st Main, Bengaluru",
+    "category" : "Food",
+    "fname" : "Mansi",
+    "gst" : "465456784",
+    "idNumber" : "78456454",
+    "idType" : "adhaar",
+    "lname" : "Gupta",
+    "phone" : "789456123",
+    "pincode" : "244901",
+    "shopAddress" : "Bengaluru",
+    "shopName" : "Gupta Sweets",
+    "slotCapacity" : 10,
+    "slotDuration" : 15
+  } ]
+}
