@@ -1,0 +1,79 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+    <div class="container">
+      <form>
+        <div class="form-container">
+          <div class="labels-container">
+            <div>
+              <label for="Acode">Area Code:</label>
+            </div>
+            <div>
+              <label for="FT">Visiting facility Type:</label>
+  
+            </div>
+            <div>
+              <label for="FTN">Visiting facility name:</label>
+  
+            </div>
+            <div>
+              <label for="Vdate">Date of visit:</label>
+  
+            </div>
+            <div>
+              <label for="STS">Select Time Slot:</label>
+            </div>
+  
+          </div>
+          <div class="fields-container">
+            <div>
+              <input type="text" id="Acode" name="Acode" [(ngModel)]="areaCode" required>
+            </div>
+            <div>
+              <select id="VFT" name="Visiting facility Type:"  [(ngModel)]="facilityType" >
+                <option value="Passport">Super-markets</option>
+                <option value="Ration card">small Kirana stores</option>
+                <option value="Aadhar card">Pharmacy</option>
+                <option value="Driving License">Malls</option>
+                <option value="Driving License">Parlour/salons</option>
+                <option value="Driving License">Bank</option>
+                <option value="Driving License">Clinic</option>
+                <option value="Driving License">Bazzar</option>
+                <option value="Driving License">Sabji mandi</option>
+              </select>
+            </div>
+            <div>
+              <select id="VFTN" name="Select visiting facility:"   [(ngModel)]="storeName" required>
+                <option value="Passport">Green land</option>
+                <option value="Ration card">happy land </option>
+                <option value="Aadhar card">M K Ahmed</option>
+                <option value="Driving License">Reliance</option>
+              </select>
+            </div>
+            <div>
+              <input type="date" id="Vdate" name="Vdate" min="2020-05-14"   [(ngModel)]="slotDate"  required>
+            </div>
+            <div>
+              <select id="Tslot" name="Select Time Slot:" [(ngModel)]="slotTime" >
+                <option value="">10-10.30</option>
+                <option value="10.30-11:00">10.30-11:00</option>
+                <option value="Aadhar card">11.00-11:30</option>
+                <option value="Driving License">11.30-12:00</option>
+                <option value="Driving License">12.00-12:30</option>
+                <option value="Driving License">13.30-13:00</option>
+                <option value="Driving License">13.00-13:30</option>
+              </select>
+            </div>
+          </div>
+  
+        </div>
+        <div class="button-container">
+            <button type="reset" class="btn btn-primary">Reset</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  
+  </div>
+  
+  <router-outlet>
+  </router-outlet>

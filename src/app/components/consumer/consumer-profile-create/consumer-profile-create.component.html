@@ -1,0 +1,70 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+    <div class="container">
+      <form name="consumerProfileForm" (ngSubmit)="onSubmit()">
+        <div class="form-container">
+          <div class="labels-container">
+            <div>
+              <label for="Acode">First Name (As per Id proof):</label>
+            </div>
+            <div>
+              <label for="FT">Last Name (As per Id proof):</label>
+  
+            </div>
+            <div>
+              <label for="FTN">Govt Id type:</label>
+  
+            </div>
+            <div>
+              <label for="Vdate">Id number:</label>
+  
+            </div>
+            <div>
+              <label for="STS">Current Address:</label>
+            </div>
+
+            <div>
+                <label for="STS">Permanent Address:</label>
+              </div>
+
+              <div>
+                <label for="STS">Mobile Number:</label>
+              </div>
+  
+          </div>
+          <div class="fields-container">
+            <div>
+              <input type="text" id="fName" name="Acode" [(ngModel)]="fName" required>
+            </div>
+            <div>
+                <input type="text" id="lName" name="Acode" [(ngModel)]="lName" required>
+              </div>
+            <div>
+              <select id="VFT" name="idType" [(ngModel)]="idType">
+                <option value="Passport">Adhar Card</option>
+                <option value="Ration card">Driving License</option>
+                <option value="Ration card">Ration Card</option>
+              </select>
+            </div>
+            <div>
+                <input type="text" id="idNumber" name="idNumber" [(ngModel)]="idNumber" required>
+            </div>
+            <div>
+              <textarea id="currentAddress" [(ngModel)]="currentAddress"> </textarea>
+            </div>
+            <div>
+                <textarea id="permanentAddress" [(ngModel)]="permanentAddress"> </textarea>
+            </div>
+            <div>
+                <input type="number" id="mobileNumber" [(ngModel)]="mobileNumber">
+            </div>
+          </div>
+  
+        </div>
+        <div class="button-container">
+          <button type="reset" class="btn btn-primary">Reset</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>

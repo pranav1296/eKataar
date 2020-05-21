@@ -1,0 +1,33 @@
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+<br>
+<br>
+<br>
+<div class="flex-container">
+    <div class="google-btn">
+        <div class="google-icon-wrapper">
+            <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+        </div>
+        <p class="btn-text">
+            <b>Sign in with google</b>
+        </p>
+    </div>
+
+    <!-- after Successfull authentication -->
+    <div style="margin:0 42% 0 42%">
+        <div>
+            <input type="radio" value="vendor" name="typeOfUser" [(ngModel)]="typeOfUser"> Vendor
+            <input type="radio"  id="" value="consumer" name="typeOfUser" [(ngModel)]="typeOfUser"> Consumer
+        </div>
+
+        <div style="margin: 20% 0 0 35%">
+            <a  >
+                <button (click)="redirect(typeOfUser)">Submit</button>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+</div>
