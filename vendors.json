@@ -1,0 +1,16 @@
+{
+    "879546213" : {
+        "address" : "1st Main, Bengaluru",
+        "category" : "Food",
+        "fname" : "Mansi",
+        "gst" : "465456784",
+        "idNumber" : "78456454",
+        "idType" : "adhaar",
+        "lname" : "Gupta",
+        "pincode" : "244901",
+        "shopAddress" : "Bengaluru",
+        "shopName" : "Gupta Sweets",
+        "slotCapacity" : 10,
+        "slotDuration" : 15
+      }
+}

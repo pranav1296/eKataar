@@ -74,7 +74,7 @@ exports.createConsumer = functions.https.onRequest((req, res) => {
       
     }
 });
-exports.isReturningUser = functions.https.onRequest((req, res) => {
+exports.isReturningConsumer = functions.https.onRequest((req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
     res.set('Access-Control-Allow-Methods', 'GET, POST');
     console.log("received", req.body.toString());
@@ -104,6 +104,36 @@ exports.isReturningUser = functions.https.onRequest((req, res) => {
       
     }
 });
+exports.isReturningVendor = functions.https.onRequest((req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET, POST');
+  console.log("received", req.body.toString());
+  if (req.method === 'OPTIONS') {
+    // Send response to OPTIONS requests
+    res.set('Access-Control-Allow-Methods', 'GET, POST');
+    res.set('Access-Control-Allow-Headers', '*');
+    res.set('Access-Control-Max-Age', '3600');
+    res.status(204).send('');
+  } else {
+    admin.database().ref('vendorMapping/').once('value', (snapshot) => {
+      let userName = email.split('@')[0];
+      if(snapshot.hasChild(userName)){
+        res.status(200).send({
+          "status": "success",
+          "returningUser": "true",
+          "message" : snapshot.child(userName)
+        });
+      }else {
+        res.status(200).send({
+          "status": "success",
+          "returningUser": "false",
+          "message" : "first time login"
+        });
+      }          
+    });
+    
+  }
+});
 function addUserMapping (email, mobile){
   let userName = email.split('@')[0];
   admin.database().ref('userMapping/').once('value', (userMapping) => {
@@ -119,5 +149,57 @@ function addConsumer(consumersArray, data){
       "idType" : data.idType,
       "lname" : data.lname,
       "pincode" : data.pincode
+  });
+}
+
+exports.createVendor = functions.https.onRequest((req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET, POST');
+  console.log("received", req.body.toString());
+  if (req.method === 'OPTIONS') {
+    // Send response to OPTIONS requests
+    res.set('Access-Control-Allow-Methods', 'GET, POST');
+    res.set('Access-Control-Allow-Headers', '*');
+    res.set('Access-Control-Max-Age', '3600');
+    res.status(204).send('');
+  } else {
+    admin.database().ref('vendors/').once('value', (vendors) => {
+      if(vendors.hasChild(data.mobile)){
+        const error = {
+          "status": "error",
+          "error" : "User Already exists"
+        }
+        res.status(200).send(error);
+      }else {
+        addVendor(vendors, data);
+        addVendorMapping(data.email, data.mobile);
+        res.status(200).send({
+          "status": "success",
+          "message" : "User added successfully."
+        });
+      }        
+    });    
+  }
+});
+function addVendorMapping (email, mobile){
+let userName = email.split('@')[0];
+admin.database().ref('vendorMapping/').once('value', (vendorMapping) => {
+  vendorMapping.ref.child(`${userName}/`).set(mobile);
+});
+}
+function addVendor(vendor, data){
+  vendor.child(`${data.mobile}/`).ref.set({
+    "address" : data.address,
+    "category" : data.category,
+    "fname" : data.fname,
+    "gst" : data.gst,
+    "idNumber" : data.idNumber,
+    "idType" : data.idType,
+    "lname" : data.lname,
+    "pincode" : data.pincode,
+    "shopAddress" : data.shopAddress,
+    "shopName" : data.shopName,
+    "slotCapacity" : data.slotCapacity,
+    "slotDuration" : data.slotDuration
   });
 }
