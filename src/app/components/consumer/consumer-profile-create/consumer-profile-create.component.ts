@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-consumer-profile-create',
@@ -8,7 +9,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 })
 export class ConsumerProfileCreateComponent implements OnInit {
 
-  profileForm = new FormGroup({ 
+  consumerProfileCreationForm = new FormGroup({
     fName:new FormControl(''),
     lName:new FormControl(''),
     idType:new FormControl(''),
@@ -18,15 +19,17 @@ export class ConsumerProfileCreateComponent implements OnInit {
     mobileNumber:new FormControl('')
   })
 
-  
-  
-  consumerProfileForm:{};
-  constructor() { }
-  onSubmit() {
+  constructor(private router: Router) { }
+  submitForm() {
     debugger;
-    if (this.consumerProfileForm) {
-      console.log("Form Submitted!");
+    if (this.consumerProfileCreationForm) {
+      console.log("consumer Form Submitted!");
+      this.redirect();
     }
+  }
+  redirect() {
+    let path = "./consumer";
+    this.router.navigate([path]);
   }
 
   ngOnInit() {
