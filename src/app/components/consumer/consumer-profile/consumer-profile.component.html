@@ -1,6 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
     <div class="container">
+      <div class="tabsSection">
+        <div class="tab" (click)="routeToCreateProfile()">
+          Profile
+        </div>
+        <div class="tab"  (click)="routeToProfile()">
+          Slot Booking
+        </div>
+      </div>
+      <div  class="formSection">
       <form [formGroup]="consumerProfileForm" (ngSubmit)="submitForm()">
         <div class="form-container">
           <div class="labels-container">
@@ -50,7 +59,7 @@
               </select>
             </div>
             <div>
-              <input type="date" id="Vdate" name="Vdate" min="2020-05-14"   formControlName="slotDate"  required>
+              <input type="date" id="slotDate" name="Vdate" min="new Date()"   formControlName="slotDate"  required>
             </div>
             <div>
               <select id="timeslot" name="timeslot" formControlName="slotTime" >
@@ -71,6 +80,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
+    </div>
     </div>
   
   </div>
