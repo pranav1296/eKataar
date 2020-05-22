@@ -19,8 +19,12 @@ export class ConsumerProfileComponent implements OnInit {
 
   constructor(private router: Router) { }
   submitForm() {
-    debugger;
     if (this.consumerProfileForm) {
+      var object = {};
+      Object.keys(this.consumerProfileForm.controls).forEach(key => {
+        object[key] = this.consumerProfileForm.controls[key].value;
+      });
+      // now above Object is ready to be sent
       console.log("consumer Form Submitted!");
       this.redirect();
     }

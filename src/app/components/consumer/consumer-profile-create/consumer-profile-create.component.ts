@@ -14,15 +14,18 @@ export class ConsumerProfileCreateComponent implements OnInit {
     lName:new FormControl(''),
     idType:new FormControl(''),
     idNumber:new FormControl(''),
-    currentAddress:new FormControl(''),
-    permanentAddress:new FormControl(''),
-    mobileNumber:new FormControl('')
+    address:new FormControl(''),
+    mobile:new FormControl('')
   })
 
   constructor(private router: Router) { }
   submitForm() {
-    debugger;
     if (this.consumerProfileCreationForm) {
+      var object = {};
+      Object.keys(this.consumerProfileCreationForm.controls).forEach(key => {
+        object[key] = this.consumerProfileCreationForm.controls[key].value;
+      });
+      // now above Object is ready to be sent
       console.log("consumer Form Submitted!");
       this.redirect();
     }
