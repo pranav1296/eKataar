@@ -1,20 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+
+  <style>
+    body {
+      background-color: aliceblue;
+      padding-bottom: 20px;
+    }
+
+    .body-wrapper {
+      border: 1px solid black;
+      width: 78%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 7%;
+      padding-bottom: 20px;
+      border: 1px solid cadetblue;
+    }
+  </style>
 </head>
+
 <body>
-  <header>
-    <img src="../assets/images/banner.jpg" alt="help us to stop CORONA" style="width: 80%;
-    height: 200px; margin-left: 10%;" />
-  </header>
+  <div class="body-wrapper">
+    <header>
+      <img src="../assets/images/banner.jpg" alt="help us to stop CORONA" style="width: 85%;
+    height: 200px;" />
+    </header>
     <!-- <app-sign-up></app-sign-up> -->
     <router-outlet></router-outlet>
-  <footer>
+    <footer>
 
-  </footer>
+    </footer>
+  </div>
 </body>
+
 </html>
