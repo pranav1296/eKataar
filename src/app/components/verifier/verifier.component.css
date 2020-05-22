@@ -1,0 +1,12 @@
+.confirmation-container > div{
+    text-align: center;
+}
+
+.confirmation-container{
+    margin-right: 15%;
+}
+
+.wish {
+    font-size: x-large;
+    font-weight: 700;
+}
