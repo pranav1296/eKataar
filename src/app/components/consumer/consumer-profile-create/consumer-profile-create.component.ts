@@ -35,16 +35,6 @@ export class ConsumerProfileCreateComponent implements OnInit {
     this.router.navigate([path]);
   }
 
-  routeToProfile() {
-    let path = "./consumer";
-    this.router.navigate([path]);
-  }
-
-  routeToCreateProfile() {
-    let path = "./createconsumer";
-    this.router.navigate([path]);
-  }
-
   ngOnInit() {
     
   }

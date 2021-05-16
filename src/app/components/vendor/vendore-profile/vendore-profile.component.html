@@ -1,1 +1,134 @@
-<p>vendore-profile works!</p>
+<table>
+
+   
+    <TR>
+        <TD><label for="OFN">Owner full name:</label></TD>
+        <TD><input type="text" id="ONF" name="ONF"><br></TD>
+        </TR>
+        <TR>
+        <TD><label for="Mnumber">Mobile number:</label></TD>
+        <TD><input type="text" id="Mnumber" name="Mnumber" required><br></TD>
+        </TR>
+        <TR>
+        <TD><label for="sname">Shop Name:</label></TD>
+        <TD><input type="text" id="sname" name="sname" required autofocus><br></TD>
+        </TR>
+        <TR>
+        <TD><label for="GST">GST/Registration number:</label></TD>
+        <TD><input type="text" id="GST" name="GST" required><br></TD>
+        </TR>
+        <TR>
+        <TD><label for="Address">Shop Address:</label></TD>
+        <TD>
+        <textarea name="Address" rows="10" cols="25">
+        Enter your address here.
+        </textarea>
+        <br></TD>
+        </TR>
+        <TR>
+        <TD><label for="Acode">Area Code:</label></TD>
+        <TD><input type="text" id="Acode" name="Acode" required><br>
+        <label for="gsearch">Search Area Code:</label>
+          <input type="search" id="gsearch" name="gsearch">
+        </TD>
+        </TR>
+        <TR>
+        <TD><label for="FT">Choose your facility Type:</label></TD>
+        <TD>
+          <select id="VFT" name="Visiting facility Type:">
+          <option value="Passport">Super-markets</option>
+          <option value="Ration card">small Kirana stores</option>
+          <option value="Aadhar card">Pharmacy</option>
+          <option value="Driving License">Malls</option>
+          <option value="Driving License">Parlour/salons</option>
+          <option value="Driving License">Bank</option>
+          <option value="Driving License">Clinic</option>
+          <option value="Driving License">Bazzar</option>
+          <option value="Driving License">Sabji mandi</option>
+        </select><br></TD>
+        </TR><br>
+        <TR>
+        <TD colspan="2"><label for="FTN">Choose your operating days and hours:</label></TD>
+        </TR>
+        <TR>
+        <TD colspan="2">
+        <table style="width: 80%;">
+        <Tr>
+          <td></td>
+        <TD> <b>Opening Time</b></TD>
+        <TD> <b>Closing Time</b></TD>
+        <TD> <b>Break Time</b></TD>
+        </Tr>
+        <TR>
+        <TD> <input type="checkbox" id="Monday" name="Monday" value="Monday">
+          <label for="Monday"> Monday</label><br></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required value="09:00 am"></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required value="08:00 pm"></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required value="02:00-04:00 pm"></TD>
+        </TR>
+        <TR>
+        <TD> <input type="checkbox" id="Monday" name="Monday" value="Monday">
+          <label for="Monday"> Tuesday</label><br></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        </TR>
+        <TR>
+        <TD> <input type="checkbox" id="Monday" name="Monday" value="Monday">
+          <label for="Monday"> Wednesday</label><br></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        </TR>
+        <TR>
+        <TD> <input type="checkbox" id="Monday" name="Monday" value="Monday">
+          <label for="Monday"> Thursday</label><br></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        </TR>
+        <TR>
+        <TD> <input type="checkbox" id="Monday" name="Monday" value="Monday">
+          <label for="Monday"> Friday</label><br></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        </TR>
+        <TR>
+        <TD> <input type="checkbox" id="Monday" name="Monday" value="Monday">
+          <label for="Monday"> Saturday</label><br></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        </TR>
+        <TR>
+        <TD> <input type="checkbox" id="Monday" name="Monday" value="Monday">
+          <label for="Monday"> Sunday</label><br></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        <TD> <input type="text" id="Acode" name="Acode" required></TD>
+        </TR>
+        </table>
+        </TD>
+        </TR>
+        <TR>
+        <TD><label for="Vdate">Any exceptional holiday ?</label></TD>
+        <TD>
+        <input type="date" id="Vdate" name="Vdate" min="2020-05-14" required><br></TD>
+        </TR>
+        <TR>
+        <TD><label for="Vdate">Time slot duration in mins (Based on average consumer time)</label></TD>
+        <TD>
+        <input type="text" id="Ctime" name="Ctime"><br></TD>
+        </TR>
+        <TR>
+        <TD><label for="capacity">Capacity of people allowed per slot</label></TD>
+        <TD>
+        <input type="text" id="cap" name="cap"><br></TD>
+        </TR>
+</table>
+<div class="button-container" style="margin-left: 45%">
+        <button type="reset" class="btn btn-primary">Reset</button>
+        <button type="submit" class="btn btn-primary"  onclick="submitVendor()">Submit</button>
+      </div>
+

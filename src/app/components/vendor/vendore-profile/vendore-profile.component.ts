@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendoreProfileComponent implements OnInit {
 
+  // showUpdateVendor = true;
+  // showProfileVendor = true;
   constructor() { }
 
   ngOnInit() {
   }
+  // updateVendorProfile() {
+  //   this.showUpdateVendor = true;
+  // }
+  // viewVendorProfile() {
+  //   this.showProfileVendor = true;
+  // }
+
+  submitVendor() {
+    
+  }
+  
 
 }

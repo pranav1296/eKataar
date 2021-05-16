@@ -21,7 +21,6 @@ exports.generateToken = functions.https.onRequest((req, res) => {
 
 
 function addAvailability(){}
-
 exports.validateEToken = functions.https.onRequest((req, res) => {
   const body = req.body;
   if (req.method === 'OPTIONS') {
@@ -30,7 +29,7 @@ exports.validateEToken = functions.https.onRequest((req, res) => {
       res.set('Access-Control-Max-Age', '3600');
       res.status(204).send('');
   } else {
-    admin.database().ref('etokens/').once('value', (etokensArray) => {
+    admin.database().ref('etokens/').on('value', (etokensArray) => {
       for (const etoken of etokensArray) {
         if (etoken.tokenNumber === body.etoken && etoken.vendor === body.vendor) {
           const date = createDate();

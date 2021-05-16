@@ -11,7 +11,6 @@ import { VendoreProfileComponent } from './components/vendor/vendore-profile/ven
 import { ConsumerProfileCreateComponent } from './components/consumer/consumer-profile-create/consumer-profile-create.component';
 import { ConsumerProfileComponent } from './components/consumer/consumer-profile/consumer-profile.component';
 import { VerifierComponent } from './components/verifier/verifier.component';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -29,7 +28,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-    <div class="section-header">Consumer Profile</div>
     <div class="container">
-      <div class="tabsSection">
-        <div class="tab" (click)="routeToCreateProfile()">
-          Profile
-        </div>
-        <div class="tab"  (click)="routeToProfile()">
-          Slot Booking
-        </div>
-      </div>
-      <div class="formSection">
       <form [formGroup]="consumerProfileCreationForm" (ngSubmit)="submitForm()">
         <div class="form-container">
           <div class="labels-container">
@@ -69,6 +59,5 @@
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
-    </div>
     </div>
   </div>

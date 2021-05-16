@@ -24,17 +24,12 @@ img{
     margin-right: auto;
 }
 .container{
-    text-align: left;
+    text-align: center;
 }
 
 .fields-container, .labels-container{
-    /* width: 50%; */
+    width: 50%;
     text-align: left;
-}
-
-.fields-container{
-    margin-left: 50px;
-    width: 300px;
 }
 
 .fields-container > div, .labels-container > div{

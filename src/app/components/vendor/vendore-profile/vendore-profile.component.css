@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+label{
+    font-size: 16px;
+    font-weight: 600;
+    height: 30px;
+}
+.item {
+    line-height: 50px;
+}
+
+input[type="text"],input[type="date"],input[type="number"], textarea, select {
+    height: 30px;
+    width: 100%;
+}
+
+textarea{
+    height: 40px;;
+}
+
+table {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img{
+    margin-left: auto;
+    margin-right: auto;
+}
+.container{
+    text-align: center;
+}
+
+.fields-container, .labels-container{
+    width: 50%;
+    text-align: left;
+}
+
+.fields-container > div, .labels-container > div{
+    height: 40px;
+    margin-top: 5px;
+}
+
+.form-container{
+    display: flex;
+    width: 53%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.button-container{
+    margin-top: 30px;
+}

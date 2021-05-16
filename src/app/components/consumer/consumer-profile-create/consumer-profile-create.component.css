@@ -29,15 +29,11 @@ img{
 }
 .container{
     text-align: center;
-    padding-left: 0px;
-    /* margin-left: 9%; */
 }
 
 .fields-container, .labels-container{
-    /* width: 50%; */
+    width: 50%;
     text-align: left;
-    margin-left: 50px;
-    width: 300px;
 }
 
 .fields-container > div, .labels-container > div{
@@ -47,7 +43,7 @@ img{
 
 .form-container{
     display: flex;
-    /* width: 53%; */
+    width: 53%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -59,38 +55,4 @@ img{
 
 .button-container{
     margin-top: 30px;
-}
-
-.container{
-    display: flex;
-}
-
-.tabsSection{
-    width: 150px;
-}
-.tab{
-
-    line-height: 50px;
-    background-color: cornflowerblue;
-    border: 1px solid aliceblue;
-    margin-top: 5px;
-    cursor: pointer;
-}
-
-.tab:hover{
-    color: #ff7a59;
-    border: #ff7a59 solid 1px;
-    background:#fff;
-  }
-
-.formSection{
-    margin-left: 50px;
-}
-
-.section-header{
-    text-align: center;
-    height: 40px;
-    font-size: x-large;
-    background-color: antiquewhite;
-    width: 85%;
 }
